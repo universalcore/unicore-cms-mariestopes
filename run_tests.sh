@@ -1,2 +1,2 @@
 #!/bin/bash
-py.test --verbose --cov ./unicorecmsskeleton unicorecmsskeleton
+py.test --verbose --cov ./unicorecmsmariestopes unicorecmsmariestopes

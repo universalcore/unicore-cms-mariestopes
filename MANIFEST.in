@@ -1,3 +1,3 @@
 include requirements.txt
-recursive-include unicorecmsskeleton *
+recursive-include unicorecmsmariestopes *
 recursive-include mappings *
