@@ -1,0 +1,46 @@
+<div metal:use-macro="view.global_template"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="unicorecmsskeleton">
+    <div metal:fill-slot="content">
+
+        <div tal:define="localisation view.get_localisation()" tal:omit-tag="">
+            <div id="banner">
+                <a href="/declaration/">
+                    <condition tal:omit-tag="" tal:condition="localisation and localisation.image_host and localisation.image">
+                        <img alt="Welcome to the Skeleton" src="${view.get_image_url(localisation.image_host, localisation.image, 320)}"/>
+                    </condition>
+                    <condition tal:omit-tag="" tal:condition="not (localisation and localisation.image_host and localisation.image)">
+                        <img alt='Welcome to the Skeleton' src="/static/img/000000.png" />
+                    </condition>
+                </a>
+            </div>
+        </div>
+
+        <div class="articles latest" tal:condition="view.get_featured_pages()">
+            <div class="h1" i18n:translate="Latest">
+                Latest
+            </div>
+            <div class="listing no-pic" tal:repeat="page view.get_featured_pages()">
+                <div class="h2"><a href="/content/detail/${page.uuid}/">${page.title}</a></div>
+                <p>${page.description}</p>
+                <div class="clr"></div>
+            </div>
+        </div>
+
+        <div class="articles" tal:repeat="cat view.get_categories()">
+            <div class="h1">
+                <a href="/content/list/${cat.uuid}/">${cat.title}</a>
+            </div>
+            <div class="listing no-pic" tal:repeat="page view.get_featured_category_pages(cat.uuid)">
+                <div class="h2"><a href="/content/detail/${page.uuid}/">${page.title}</a></div>
+                <p>${page.description}</p>
+                <div class="clr"></div>
+            </div>
+            <div class="clr"></div>
+            <div class="pagination" tal:condition="view.get_featured_category_pages(cat.uuid)">
+                <a href="/content/list/${cat.uuid}/"><span i18n:translate="More">More</span> ${cat.title}</a>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div metal:use-macro="view.global_template">
+    <div metal:fill-slot="content" class="articles">
+
+        <div class="h1">
+            ${category.title}
+        </div>
+
+        <repeat tal:omit-tag="" tal:repeat="page pages[:20]">
+
+            <div tal:attributes="{'class':'listing'} if page.image_host and page.image else {'class': 'listing no-pic'}">
+                <condition tal:omit-tag="" tal:condition="page.image_host and page.image">
+                    <a href="/content/detail/${page.uuid}/">
+                        <img alt='${page.title}' src="${view.get_image_url(page.image_host, page.image, 45, 45)}"/>
+                    </a>
+                </condition>
+                <div class="h2"><a href="/content/detail/${page.uuid}/">${page.title}</a></div>
+                <p>${page.description}</p>
+                <div class="clr"></div>
+            </div>
+
+        </repeat>
+    </div>
+</div>

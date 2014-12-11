@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:define-macro="layout"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="unicorecmsskeleton">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}img/favicon.ico" />
+    <title>Skeleton / Universal Core</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content="Skeleton keywords go here"/>
+    <link href="${request.static_url('cms:static/css/style.css')}?v=20141113" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="header">
+        <div class="lang">
+          <div>
+          <span tal:repeat="item view.get_available_languages">
+            <a href="/locale/?language=${item[0]}">${item[1]}</a>
+            <span tal:omit-tag="" tal:condition="not repeat.item.end"> |</span>
+          </span>
+          </div>
+        </div>
+        <div class="logo"><a href="/" class="logo"><img alt='Skeleton' src="/static/img/logo000000.png" /></a></div>
+        <div class="clr"></div>
+    </div>
+    <div class="push"></div><!--/PUSH-->
+    <div id="submenu">
+        <a href="/" i18n:translate="Home">Home</a>
+        <span tal:repeat="cat view.get_top_nav">
+            l <a href="/content/list/${cat.uuid}/">${cat.title}</a>
+        </span>
+    </div>
+
+    <div id="content">
+        <div metal:define-slot="content"></div>
+    </div>
+</body>
+</html>

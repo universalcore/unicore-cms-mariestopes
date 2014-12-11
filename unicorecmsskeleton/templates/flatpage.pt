@@ -1,0 +1,12 @@
+<div metal:use-macro="view.global_template">
+    <div metal:fill-slot="content" class="articles">
+        <div class="h1">
+            ${page.title}
+        </div>
+
+        <div class="detail">
+            <div class="clr"></div>
+            <p>${structure:content}</p>
+        </div>
+    </div>
+</div>
