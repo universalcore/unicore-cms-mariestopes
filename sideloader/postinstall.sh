@@ -4,7 +4,7 @@ cd "${INSTALLDIR}/${REPO}/"
 
 $pip install -e "${INSTALLDIR}/${REPO}/"
 
-ini_files="skeleton_*.ini"
+ini_files="mariestopes_*.ini"
 
 for ini in $ini_files
 do
