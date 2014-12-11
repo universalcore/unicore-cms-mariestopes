@@ -5,7 +5,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'requirements.txt'), 'r') as fp:
     requires = filter(None, fp.readlines())
 
-setup(name='unicore-cms-skeleton',
+setup(name='unicore-cms-mariestopes',
       version='0.1.0',
       description='GEM Pyramid Frontend Site for Universal Core ',
       long_description='GEM Pyramid Frontend Site for Universal Core ',
@@ -17,7 +17,7 @@ setup(name='unicore-cms-skeleton',
       ],
       author='Praekelt Foundation',
       author_email='dev@praekelt.com',
-      url='http://github.com/universalcore/unicore-cms-skeleton',
+      url='http://github.com/universalcore/unicore-cms-mariestopes',
       license='BSD',
       keywords='web pyramid pylons',
       packages=find_packages(),

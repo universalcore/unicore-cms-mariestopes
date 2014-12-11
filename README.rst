@@ -1,11 +1,11 @@
-unicore-cms-skeleton
+unicore-cms-mariestopes
 ====================
 
 A skeleton project to use as the base for creating new apps
 
 To use this repo as a base for your new app, do the following::
 
-  $ git remote add skeleton https://github.com/universalcore/unicore-cms-skeleton.git
+  $ git remote add skeleton https://github.com/universalcore/unicore-cms-mariestopes.git
   $ git fetch skeleton
   $ git merge skeleton/develop
 
