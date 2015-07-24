@@ -1,11 +1,11 @@
 <div metal:use-macro="view.global_template"
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-     i18n:domain="unicorecmsureport">
+     i18n:domain="unicorecmsmariestopes">
     <div metal:fill-slot="content">
 
         <div class="banner" tal:condition="localisation" tal:define="localisation view.get_localisation()">
-            <img tal:condition="localisation and localisation.image" src="${view.get_image_url(localisation.image_host, localisation.image, width=140)}" srcset="${view.get_image_url(localisation.image_host, localisation.image, width=320)} 320w" sizes="100vw" alt="U Report banner" i18n:attributes="alt" />
-            <img tal:condition="not (localisation and localisation.image)" src="${request.static_url('cms:static/img/000000.png')}" alt="U Report banner" i18n:attributes="alt" />
+            <img tal:condition="localisation and localisation.image" src="${view.get_image_url(localisation.image_host, localisation.image, width=140)}" srcset="${view.get_image_url(localisation.image_host, localisation.image, width=320)} 320w" sizes="100vw" alt="Sex + You banner" i18n:attributes="alt" />
+            <img tal:condition="not (localisation and localisation.image)" src="${request.static_url('cms:static/img/000000.png')}" alt="Sex + You banner" i18n:attributes="alt" />
         </div>
 
         <div tal:repeat="category view.get_categories()" tal:omit-tag="">

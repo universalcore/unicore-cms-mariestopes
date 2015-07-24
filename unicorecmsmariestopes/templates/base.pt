@@ -6,14 +6,14 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       metal:define-macro="layout"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="unicorecmsureport">
+      i18n:domain="unicorecmsmariestopes">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="shortcut icon" type="image/x-icon" href="${request.static_url('cms:static/img/favicon.ico')}" />
-    <title i18n:translate="">U Report</title>
+    <title i18n:translate="">Sex + You</title>
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
     <meta name="description" content="" />
-    <meta name="keywords" content="ureport" />
+    <meta name="keywords" content="mariestopes" />
     <link href="${request.static_url('cms:static/css/style.css')}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" media="screen and (min-width: 20em)" href="${request.static_url('cms:static/css/super.css')}" rel="stylesheet" type="text/css">
 </head>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="h1 site-title">
-            <div><a href="${request.route_url('home')}" i18n:translate="">U Report</a></div>
+            <div><a href="${request.route_url('home')}" i18n:translate="">Sex + You</a></div>
         </div>
 
     </div>
@@ -44,8 +44,8 @@
     </div>
 
     <div id="footer">
-        <div>&copy; <span tal:omit-tag="" i18n:translate="">U Report</span></div>
-        <div><span><a href="${request.route_url('flatpage', slug='about')}" i18n:translate="">About U Report</a></span></div>
+        <div>&copy; <span tal:omit-tag="" i18n:translate="">Sex + You</span></div>
+        <div><span><a href="${request.route_url('flatpage', slug='about')}" i18n:translate="">About Sex + You</a></span></div>
     </div>
 
 </body>
