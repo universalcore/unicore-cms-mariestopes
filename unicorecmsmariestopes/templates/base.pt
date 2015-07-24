@@ -1,43 +1,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      dir="${view.get_language_direction()}"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       metal:define-macro="layout"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="unicorecmsmariestopes">
+      i18n:domain="unicorecmsureport">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}img/favicon.ico" />
-    <title>Skeleton / Universal Core</title>
+    <link rel="shortcut icon" type="image/x-icon" href="${request.static_url('cms:static/img/favicon.ico')}" />
+    <title i18n:translate="">U Report</title>
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-    <meta name="description" content=""/>
-    <meta name="keywords" content="Skeleton keywords go here"/>
-    <link href="${request.static_url('cms:static/css/style.css')}?v=20141113" rel="stylesheet" type="text/css" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="ureport" />
+    <link href="${request.static_url('cms:static/css/style.css')}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" media="screen and (min-width: 20em)" href="${request.static_url('cms:static/css/super.css')}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="header">
-        <div class="lang">
-          <div>
-          <span tal:repeat="item view.get_available_languages">
-            <a href="/locale/?language=${item[0]}">${item[1]}</a>
-            <span tal:omit-tag="" tal:condition="not repeat.item.end"> |</span>
-          </span>
-          </div>
+
+        <div class="lang" tal:condition="len(view.get_available_languages) > 1">
+            <span>${view.get_display_name(view.locale)}</span><span class="divider"> | </span>
+            <div tal:repeat="lang_tuple view.get_display_languages()[1:]" tal:omit-tag="">
+                <span tal:define="code lang_tuple[0]; display_name lang_tuple[1]">
+                    <a href="${request.route_url('locale_matched', language=code)}">${display_name}</a>
+                </span>
+                <span tal:condition="not repeat.lang_tuple.end" class="divider"> | </span>
+            </div>
+            <div tal:condition="len(view.get_display_languages()) < len(view.get_available_languages)" tal:omit-tag="" >
+                <span class="divider"> | </span><span><a href="${request.route_url('locale_change')}">&hellip;</a></span>
+            </div>
         </div>
-        <div class="logo"><a href="/" class="logo"><img alt='Skeleton' src="/static/img/logo000000.png" /></a></div>
-        <div class="clr"></div>
-    </div>
-    <div class="push"></div><!--/PUSH-->
-    <div id="submenu">
-        <a href="/" i18n:translate="Home">Home</a>
-        <span tal:repeat="cat view.get_top_nav">
-            l <a href="/content/list/${cat.uuid}/">${cat.title}</a>
-        </span>
+
+        <div class="h1 site-title">
+            <div><a href="${request.route_url('home')}" i18n:translate="">U Report</a></div>
+        </div>
+
     </div>
 
     <div id="content">
         <div metal:define-slot="content"></div>
     </div>
+
+    <div id="footer">
+        <div>&copy; <span tal:omit-tag="" i18n:translate="">U Report</span></div>
+        <div><span><a href="${request.route_url('flatpage', slug='about')}" i18n:translate="">About U Report</a></span></div>
+    </div>
+
 </body>
 </html>

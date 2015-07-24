@@ -1,0 +1,13 @@
+<div metal:use-macro="view.global_template"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="unicorecmsureport">
+    <div metal:fill-slot="content">
+
+        <ul>
+            <li tal:repeat="(code, display) languages">
+                <a href="${request.route_url('locale_matched', language=code)}">${display}</a>
+            </li>
+        </ul>
+
+    </div>
+</div>

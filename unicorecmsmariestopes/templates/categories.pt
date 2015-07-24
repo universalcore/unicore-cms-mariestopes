@@ -1,11 +1,13 @@
-<div metal:use-macro="view.global_template">
+<div metal:use-macro="view.global_template"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="unicorecmsureport">
     <div metal:fill-slot="content">
-      <div class="articles" tal:repeat="cat view.get_categories()">
-        <div class="h1">
-            <a href="/content/list/${cat.uuid}/">
-              ${cat.title}
-            </a>
+
+        <div class="articles">
+            <div class="more" tal:repeat="category view.get_categories()">
+                <a href="${request.route_url('category', category=category.uuid)}">${category.title}</a>
+            </div>
         </div>
-      </div>
+
     </div>
 </div>

@@ -1,12 +1,23 @@
-<div metal:use-macro="view.global_template">
-    <div metal:fill-slot="content" class="articles">
-        <div class="h1">
-            ${page.title}
-        </div>
+<div metal:use-macro="view.global_template"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="unicorecmsureport">
+    <div metal:fill-slot="content">
 
-        <div class="detail">
-            <div class="clr"></div>
-            <p>${structure:content}</p>
+        <div class="articles">
+
+            <div class="article" tal:define="has_image page.image_host and page.image">
+                <div tal:attributes="{'class':'head'} if has_image else {'class': 'head no-pic'}">
+                    <div class="h2">${page.title}</div>
+                    <div class="img" tal:condition="has_image">
+                        <a href="${request.route_url('flatpage', slug=page.slug)}">
+                            <img alt="${page.title}" src="${view.get_image_url(page.image_host, page.image, width=140)}" srcset="${view.get_image_url(page.image_host, page.image, width=320)} 320w" sizes="100vw" />
+                        </a>
+                    </div>
+                    <div class="meta">${structure:description}</div>
+                </div>
+                <div>${structure:content}</div>
+            </div>
+
         </div>
     </div>
 </div>
