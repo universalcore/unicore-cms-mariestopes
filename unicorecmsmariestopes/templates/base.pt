@@ -34,7 +34,7 @@
         </div>
 
         <div class="h1 site-title">
-            <div><a href="${request.route_url('home')}" i18n:translate="">Sex + You</a></div>
+            <div><a href="${request.route_url('home')}" i18n:translate="">Health Talk</a></div>
         </div>
 
     </div>
@@ -44,8 +44,8 @@
     </div>
 
     <div id="footer">
-        <div>&copy; <span tal:omit-tag="" i18n:translate="">Sex + You</span></div>
-        <div><span><a href="${request.route_url('flatpage', slug='about')}" i18n:translate="">About Sex + You</a></span></div>
+        <div>&copy; <span tal:omit-tag="" i18n:translate="">Health Talk</span></div>
+        <div><span><a href="${request.route_url('flatpage', slug='about')}" i18n:translate="">About Health Talk</a></span></div>
     </div>
 
 </body>
