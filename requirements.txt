@@ -1,1 +1,2 @@
-unicore-cms>=1.0.3
+unicore-cms>=1.9.5
+
